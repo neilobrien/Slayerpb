@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package configfetcher;
+option go_package="configfetcherpb";
+
+message Version {
+  int32 version = 1;
+}
+
+message Probe {
+  string name = 1;
+  string dst = 2;
+  string type = 3; // ENUM TCP/UDP/ICMP
+  int32 num = 4;
+}
+
+message Probes {
+  int32 version = 1;
+  repeated Probe probes =2;
+}
+
+message ConfigRequest {
+  string deviceName = 1;
+}
+
+message ConfigResponse {
+  Probes probes = 1;
+}
+
+service ConfigService{
+  rpc GetConfig(ConfigRequest) returns (ConfigResponse) {};
+}
