@@ -28,10 +28,11 @@ message ConfigResponse {
 }
 
 message PingResponse {
-  string src_host = 1;
-  string target_name = 2;
-	string ip_address = 3;
-	int64 rtt = 4;
+  string host = 1;
+	string Addr = 2;
+	int32 Port = 3;
+	float Rtt = 4;
+	string err  = 5;
 }
 
 message ReceivedAck {
