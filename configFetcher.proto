@@ -27,6 +27,19 @@ message ConfigResponse {
   Probes probes = 1;
 }
 
+message PingResponse {
+  string host = 1;
+	string Addr = 2;
+	int32 Port = 3;
+	float Rtt = 4;
+	string err  = 5;
+}
+
+message ReceivedAck {
+  bool received = 1;
+}
+
 service ConfigService{
   rpc GetConfig(ConfigRequest) returns (ConfigResponse) {};
+  rpc GetPingResponse(PingResponse) returns (ReceivedAck) {};
 }
