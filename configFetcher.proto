@@ -3,11 +3,6 @@ syntax = "proto3";
 package configfetcher;
 option go_package="configfetcherpb";
 
-// Probe Configs
-message Version {
-  int32 version = 1;
-}
-
 message Probes {
   int32 version = 1;
   repeated Probe probes =2;
