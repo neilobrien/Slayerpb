@@ -28,6 +28,10 @@ message ConfigResponse {
   repeated Probe probes =2;
 }
 
+message ConfigVersionResponse {
+  int32 version = 1;
+}
+
 // Results from Host
 message PingResponse {
   string host = 1;
@@ -43,5 +47,6 @@ message ReceivedAck {
 
 service ConfigService{
   rpc GetConfig(ConfigRequest) returns (ConfigResponse) {};
+  rpc GetConfigVersion(ConfigRequest) returns (ConfigVersionResponse) {};
   rpc GetPingResponse(PingResponse) returns (ReceivedAck) {};
 }
