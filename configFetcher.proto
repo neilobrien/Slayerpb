@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package slayerRPC;
+option go_package="slayerRPC";
 
 message Probe {
   string name = 1;
