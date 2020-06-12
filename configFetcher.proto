@@ -44,7 +44,6 @@ message ReceivedAck {
 service ConfigService{
   rpc GetConfig(ConfigRequest) returns (ConfigResponse) {};
   rpc GetConfigVersion(ConfigRequest) returns (ConfigVersionResponse) {};
-  rpc GetPingResponse(PingResponse) returns (ReceivedAck) {};
 }
 
 service PingService{
