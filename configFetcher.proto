@@ -1,7 +1,8 @@
 syntax = "proto3";
 
-package slayerRPC;
-option go_package="slayerRPC";
+package configfetcher;
+option go_package="configfetcherpb";
+
 
 message Probe {
   string name = 1;
