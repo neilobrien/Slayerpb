@@ -3,10 +3,6 @@ syntax = "proto3";
 package configfetcher;
 option go_package="configfetcherpb";
 
-// message Probes {
-//   int32 version = 1;
-//   repeated Probe probes =2;
-// }
 
 message Probe {
   string name = 1;
@@ -48,5 +44,9 @@ message ReceivedAck {
 service ConfigService{
   rpc GetConfig(ConfigRequest) returns (ConfigResponse) {};
   rpc GetConfigVersion(ConfigRequest) returns (ConfigVersionResponse) {};
+  rpc GetPingResponse(PingResponse) returns (ReceivedAck) {};
+}
+
+service PingService{
   rpc GetPingResponse(PingResponse) returns (ReceivedAck) {};
 }
