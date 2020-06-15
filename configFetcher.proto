@@ -37,6 +37,14 @@ message PingResponse {
 	string err  = 5;
 }
 
+message UdpResponse {
+  string host = 1;
+	string addr = 2;
+	int64 pktsSent = 3;
+	int64 pktsReceived = 4;
+	string err  = 5;
+}
+
 message ReceivedAck {
   bool received = 1;
 }
@@ -48,4 +56,8 @@ service ConfigService{
 
 service PingService{
   rpc GetPingResponse(PingResponse) returns (ReceivedAck) {};
+}
+
+service UdpService{
+  rpc ExchangeUdpSendReceive(UdpResponse) returns (UdpResponse) {};
 }
