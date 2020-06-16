@@ -56,5 +56,5 @@ service ConfigService{
 
 service PingService{
   rpc GetPingResponse(PingResponse) returns (ReceivedAck) {};
-  rpc ExchangeUdpSendReceive(UdpResponse) returns (UdpResponse) {};
+  rpc ExchangeUDPSendReceive(UdpResponse) returns (UdpResponse) {};
 }
