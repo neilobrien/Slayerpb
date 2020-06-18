@@ -49,6 +49,9 @@ message ReceivedAck {
   bool received = 1;
 }
 
+message Empty {
+}
+
 service ConfigService{
   rpc GetConfig(ConfigRequest) returns (ConfigResponse) {};
   rpc GetConfigVersion(ConfigRequest) returns (ConfigVersionResponse) {};
@@ -57,4 +60,5 @@ service ConfigService{
 service PingService{
   rpc GetPingResponse(PingResponse) returns (ReceivedAck) {};
   rpc ExchangeUDPSendReceive(UdpResponse) returns (UdpResponse) {};
+  rpc ReadyToReceive(Empty) returns (Empty){};
 }
