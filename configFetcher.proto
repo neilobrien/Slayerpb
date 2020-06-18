@@ -52,6 +52,10 @@ message ReceivedAck {
 message Empty {
 }
 
+message PktCounter {
+    int32 counter = 1;
+}
+
 service ConfigService{
   rpc GetConfig(ConfigRequest) returns (ConfigResponse) {};
   rpc GetConfigVersion(ConfigRequest) returns (ConfigVersionResponse) {};
@@ -61,4 +65,5 @@ service PingService{
   rpc GetPingResponse(PingResponse) returns (ReceivedAck) {};
   rpc ExchangeUDPSendReceive(UdpResponse) returns (UdpResponse) {};
   rpc ReadyToReceive(Empty) returns (Empty){};
+  rpc GetPacketCounter(Empty) returns (PktCounter){};
 }
