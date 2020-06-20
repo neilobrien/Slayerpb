@@ -37,12 +37,16 @@ message PingResponse {
 	string err  = 5;
 }
 
-message UdpResponse {
-  string host = 1;
-	string addr = 2;
-	int64 pktsSent = 3;
-	int64 pktsReceived = 4;
-	string err  = 5;
+message UDPResponse {
+  string node = 1;
+	string type = 2;
+	string target = 3;
+	string addr = 4;
+	int64 pktssent  = 5;
+	int64 pktsrcvd  = 6;
+	double loss  = 7;
+  string direction  = 8;
+  string err  = 9;
 }
 
 message ReceivedAck {
@@ -63,7 +67,7 @@ service ConfigService{
 
 service PingService{
   rpc GetPingResponse(PingResponse) returns (ReceivedAck) {};
-  rpc ExchangeUDPSendReceive(UdpResponse) returns (UdpResponse) {};
+  rpc GetUDPResponse(UDPResponse) returns (ReceivedAck) {};
   rpc ReadyToReceive(Empty) returns (Empty){};
   rpc GetPacketCounter(Empty) returns (PktCounter){};
 }
