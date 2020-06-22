@@ -30,11 +30,12 @@ message ConfigVersionResponse {
 
 // Results from Host
 message PingResponse {
-  string host = 1;
-	string Addr = 2;
-	int64 Port = 3;
-	int64 Rtt = 4;
-	string err  = 5;
+  string node = 1;
+	string type = 2;
+	string target = 3;
+	string addr = 4;
+	int64 Rtt = 5;
+	string err  = 6;
 }
 
 message UDPResponse {
