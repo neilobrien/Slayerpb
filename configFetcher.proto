@@ -66,11 +66,11 @@ service ConfigService{
 }
 
 service PingService{
-  rpc GetPingResponse(PingResponse) returns (ReceivedAck) {};
   rpc ReadyToReceive(Empty) returns (Empty){};
   rpc GetPacketCounter(Empty) returns (PktCounter){};
 }
 
 service DBService{
   rpc GetUDPResponse(UDPResponse) returns (ReceivedAck) {};
+  rpc GetPingResponse(PingResponse) returns (ReceivedAck) {};
 }
